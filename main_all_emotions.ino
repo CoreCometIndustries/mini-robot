@@ -325,21 +325,4 @@ void loop() {
 
 
 
-void updateMode() {
-  bool right = digitalRead(RIGHT_PIN);
-  bool left  = digitalRead(LEFT_PIN);
-  bool head  = digitalRead(HEAD_PIN);
-  bool back  = digitalRead(BACK_PIN);
-
-  if (right && !left && !head && !back) currentMode = MOVE_RIGHT;
-  else if (!right && left && !head && !back) currentMode = MOVE_LEFT;
-  else if (!right && !left && head && !back) currentMode = SLEEP;
-  else if (!right && !left && !head && back) currentMode = ANGRY;
-  else if (right && left && !head && !back) currentMode = HAPPY_CONFUSED;
-  else if (right && !left && head && !back) currentMode = SURPRISED;
-  else if (!right && left && !head && back) currentMode = WINK;
-  else if (right && left && head && back) currentMode = WAKEUP;
-  else currentMode = IDLE;
-}
-
 
